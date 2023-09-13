@@ -101,5 +101,3 @@ If you'd like to contribute to this project, please follow these guidelines:
 
 - This project was inspired by the need for a reliable BST implementation in C++.
 - We'd like to thank the C++ community for their valuable contributions to the field of data structures and algorithms.
-
-Feel free to customize this README to add more details about your specific BST project, and make sure to include any necessary documentation and examples to help users understand and use your code effectively.
