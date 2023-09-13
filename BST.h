@@ -16,6 +16,7 @@ public:
 
     void insert(const T&);// Insert a value into the BST
     bool search(const T&);// Search for a value in the BST
+    void deleteValue(const T&);// Public method to delete a node with a given val
     int getHeight();// Get the height of the BST
     T getMax();// Get the maximum value in the BST
     T getMin();// Get the minimum value in the BST
@@ -30,7 +31,8 @@ private:
 
     Node<T>* insertRecursive(Node<T>*, const T&);// Recursive helper function for inserting a value
     bool searchRecursive(Node<T>*, const T&);// Recursive helper function for searching a value
-    int getHeightRecursive(Node<T>*);// Recursive helper function to get the heigh
+    Node<T>* deleteNode(Node<T>*, const T&);// Recursive helper function for deleting a node
+    int getHeightRecursive(Node<T>*);// Recursive helper function to get the height
     Node<T>* findMax(Node<T>*);// Helper function to find the maximum value node in a subtree
     Node<T>* findMin(Node<T>*);// Helper function to find the minimum value node in a subtree
 
