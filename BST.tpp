@@ -41,6 +41,12 @@ bool BST<T>::search(const T &val) {
 }
 
 template<typename T>
+void BST<T>::deleteValue(const T &val) {
+    root = deleteNode(root, val);
+    --size;
+}
+
+template<typename T>
 int BST<T>::getHeight() {
     return getHeightRecursive(root);
 }
@@ -159,6 +165,32 @@ bool BST<T>::searchRecursive(Node<T> *node, const T &val) {
     } else {
         return searchRecursive(node->left, val);
     }
+}
+
+template<typename T>
+Node<T>* BST<T>::deleteNode(Node<T> *node, const T &val) {
+    if(!node) return nullptr;
+
+    if(val < node->val) {
+        node->left = deleteNode(node->left, val);
+    } else if(val > node->val) {
+        node->right = deleteNode(node->right, val);
+    } else {
+        if(!node->left) {
+            Node<T>* tmp = node->right;
+            delete node;
+            return tmp;
+        } else if(!node->right){
+            Node<T>* tmp = node->left;
+            delete node;
+            return tmp;
+        }
+
+        Node<T>* tmp = findMin(node->right);
+        node->val = tmp->val;
+        node->right = deleteNode(node->right, tmp->val);
+    }
+    return node;
 }
 
 template<typename T>
